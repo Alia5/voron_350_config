@@ -22,9 +22,9 @@ minimum_event_time = .05
 on_press = 
 on_release = 
 	{% if event.elapsed_time > 1.0 %}
-	{% do call_method("machine.device_power.off", printer="off") %}
-	{% else %}
 	{% do call_method("machine.device_power.on", printer="on") %}
+	{% else %}
+	{% do call_method("machine.device_power.off", printer="off") %}
 	{% endif %}
 
 [authorization]
