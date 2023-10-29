@@ -10,7 +10,7 @@ enable_object_processing = True
 [power printer]
 type = gpio
 pin = !gpio16
-off_when_shutdown = True
+off_when_shutdown = False
 initial_state = on
 bound_services = klipper
 on_when_job_queued = True
