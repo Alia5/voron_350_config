@@ -48,6 +48,8 @@ trusted_clients =
 
 [history]
 
+[timelapse]
+
 [announcements]
 subscriptions = 
 	octoeverywhere
