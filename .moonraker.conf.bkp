@@ -164,6 +164,14 @@ path = ~/moonraker-timelapse
 origin = https://github.com/mainsail-crew/moonraker-timelapse.git
 managed_services = klipper moonraker
 
+[update_manager klipper_auto_speed]
+type = git_repo
+path = ~/klipper_auto_speed
+origin = https://github.com/anonoei/klipper_auto_speed.git
+primary_branch = main
+install_script = install.sh
+managed_services = klipper
+
 [mmu_server]
 enable_file_preprocessor = True
 
