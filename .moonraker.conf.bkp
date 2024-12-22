@@ -2,7 +2,7 @@
 host = 0.0.0.0
 port = 7125
 max_upload_size = 1024
-klippy_uds_address = ~/printer_data/comms/klippy.sock
+klippy_uds_address = /home/klipper/printer_data/comms/klippy.sock
 
 [file_manager]
 enable_object_processing = True
@@ -31,6 +31,7 @@ on_release =
 cors_domains = 
 	https://my.mainsail.xyz
 	http://my.mainsail.xyz
+	http://app.fluidd.xyz
 	http://*.local
 	http://*.lan
 	http://*:7136
@@ -52,35 +53,36 @@ trusted_clients =
 
 [announcements]
 subscriptions = 
-	octoeverywhere
+	mainsail
 
 [update_manager]
 refresh_interval = 168
 enable_auto_refresh = True
+enable_system_updates = False
 
 [update_manager mainsail]
 type = web
 channel = stable
 repo = mainsail-crew/mainsail
-path = ~/mainsail
+path = /home/klipper/mainsail
 
 [update_manager mainsail-config]
 type = git_repo
 primary_branch = master
-path = ~/mainsail-config
+path = /home/klipper/mainsail-config
 origin = https://github.com/mainsail-crew/mainsail-config.git
 managed_services = klipper
 
 [update_manager crowsnest]
 type = git_repo
-path = ~/crowsnest
+path = /home/klipper/crowsnest
 origin = https://github.com/mainsail-crew/crowsnest.git
 managed_services = crowsnest
 install_script = tools/pkglist.sh
 
 [update_manager sonar]
 type = git_repo
-path = ~/sonar
+path = /home/klipper/sonar
 origin = https://github.com/mainsail-crew/sonar.git
 primary_branch = main
 managed_services = sonar
@@ -88,41 +90,41 @@ install_script = tools/install.sh
 
 [update_manager KlipperScreen]
 type = git_repo
-path = ~/KlipperScreen
+path = /home/klipper/KlipperScreen
 origin = https://github.com/KlipperScreen/KlipperScreen.git
-virtualenv = ~/.KlipperScreen-env
+virtualenv = /home/klipper/.KlipperScreen-env
 requirements = scripts/KlipperScreen-requirements.txt
 system_dependencies = scripts/system-dependencies.json
 managed_services = KlipperScreen
 
 [update_manager z_calibration]
 type = git_repo
-path = /home/pi/klipper_z_calibration
+path = /home/klipper/klipper_z_calibration
 origin = https://github.com/protoloft/klipper_z_calibration.git
 managed_services = klipper
 
 [update_manager Klipper-Adaptive-Meshing-Purging]
 type = git_repo
 channel = dev
-path = ~/Klipper-Adaptive-Meshing-Purging
+path = /home/klipper/Klipper-Adaptive-Meshing-Purging
 origin = https://github.com/kyleisah/Klipper-Adaptive-Meshing-Purging.git
 managed_services = klipper
 primary_branch = main
 
 [update_manager mobileraker]
 type = git_repo
-path = ~/mobileraker_companion
+path = /home/klipper/mobileraker_companion
 origin = https://github.com/Clon1998/mobileraker_companion.git
 primary_branch = main
 managed_services = mobileraker
-virtualenv = ~/mobileraker-env
+virtualenv = /home/klipper/mobileraker-env
 requirements = scripts/mobileraker-requirements.txt
 install_script = scripts/install.sh
 
 [update_manager klipper_tmc_autotune]
 type = git_repo
 channel = dev
-path = ~/klipper_tmc_autotune
+path = /home/klipper/klipper_tmc_autotune
 origin = https://github.com/andrewmcgr/klipper_tmc_autotune.git
 managed_services = klipper
 primary_branch = main
@@ -130,28 +132,17 @@ install_script = install.sh
 
 [update_manager moonraker-obico]
 type = git_repo
-path = ~/moonraker-obico
+path = /home/klipper/moonraker-obico
 origin = https://github.com/TheSpaghettiDetective/moonraker-obico.git
-env = /home/pi/moonraker-obico-env/bin/python
+env = /home/klipper/moonraker-obico/../moonraker-obico-env/bin/python
 requirements = requirements.txt
 install_script = install.sh
 managed_services = 
 	moonraker-obico
 
-[update_manager octoeverywhere]
-type = git_repo
-channel = beta
-path = /home/pi/octoeverywhere
-origin = https://github.com/QuinnDamerell/OctoPrint-OctoEverywhere.git
-env = /home/pi/octoeverywhere-env/bin/python
-requirements = requirements.txt
-install_script = install.sh
-managed_services = 
-	octoeverywhere
-
 [update_manager happy-hare]
 type = git_repo
-path = ~/Happy-Hare
+path = /home/klipper/Happy-Hare
 origin = https://github.com/moggieuk/Happy-Hare.git
 primary_branch = main
 install_script = install.sh
@@ -160,13 +151,13 @@ managed_services = klipper
 [update_manager timelapse]
 type = git_repo
 primary_branch = main
-path = ~/moonraker-timelapse
+path = /home/klipper/moonraker-timelapse
 origin = https://github.com/mainsail-crew/moonraker-timelapse.git
 managed_services = klipper moonraker
 
 [update_manager klipper_auto_speed]
 type = git_repo
-path = ~/klipper_auto_speed
+path = /home/klipper/klipper_auto_speed
 origin = https://github.com/anonoei/klipper_auto_speed.git
 primary_branch = main
 install_script = install.sh
@@ -174,7 +165,7 @@ managed_services = klipper
 
 [update_manager voron-klipper-extensions]
 type = git_repo
-path = ~/voron-klipper-extensions
+path = /home/klipper/voron-klipper-extensions
 origin = https://github.com/voidtrance/voron-klipper-extensions.git
 install_script = install-extensions.sh
 managed_services = klipper
@@ -186,8 +177,8 @@ enable_toolchange_next_pos = True
 [update_manager Klippain-ShakeTune]
 type = git_repo
 origin = https://github.com/Frix-x/klippain-shaketune.git
-path = ~/klippain_shaketune
-virtualenv = ~/klippy-env
+path = /home/klipper/klippain_shaketune
+virtualenv = /home/klipper/klippy-env
 requirements = requirements.txt
 system_dependencies = system-dependencies.json
 primary_branch = main
